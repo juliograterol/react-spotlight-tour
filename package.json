@@ -1,0 +1,73 @@
+{
+  "name": "@julscodes/react-spotlight-tour",
+  "version": "0.1.0",
+  "description": "A lightweight, dependency-free React component for building step-by-step spotlight product tours / onboarding walkthroughs.",
+  "author": "",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "react",
+    "tour",
+    "onboarding",
+    "walkthrough",
+    "spotlight",
+    "tooltip",
+    "product-tour",
+    "tutorial"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/julscodes/react-spotlight-tour.git"
+  },
+  "homepage": "https://github.com/julscodes/react-spotlight-tour#readme",
+  "bugs": {
+    "url": "https://github.com/julscodes/react-spotlight-tour/issues"
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "main": "./dist/cjs/index.js",
+  "module": "./dist/esm/index.js",
+  "types": "./dist/types/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/esm/index.js",
+      "require": "./dist/cjs/index.js"
+    },
+    "./styles.css": {
+      "import": "./dist/esm/styles.css",
+      "require": "./dist/cjs/styles.css"
+    },
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist"
+  ],
+  "engines": {
+    "node": ">=16"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.0",
+    "@types/react-dom": "^18.3.0",
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "rimraf": "^5.0.5",
+    "typescript": "^5.5.0"
+  },
+  "scripts": {
+    "clean": "rimraf dist",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "build:cjs": "tsc -p tsconfig.cjs.json",
+    "build:types": "tsc -p tsconfig.types.json",
+    "copy:css": "node scripts/copy-css.js",
+    "build": "npm run clean && npm run build:esm && npm run build:cjs && npm run build:types && npm run copy:css",
+    "prepublishOnly": "npm run build"
+  }
+}
